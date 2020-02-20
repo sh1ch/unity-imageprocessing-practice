@@ -53,7 +53,7 @@ public static class MonoBehaviourExtentsion
     /// <param name="action">実行するメソッド。</param>
     /// <param name="t1">メソッドの引数パラメーター１。</param>
     /// <returns>メソッド実行を一時停止させるコルーチン。</returns>
-    public static IEnumerable DelayAction<T>(this MonoBehaviour mono, float waitSeconds, Action<T> action, T t)
+    public static IEnumerator DelayAction<T>(this MonoBehaviour mono, float waitSeconds, Action<T> action, T t)
     {
         yield return new WaitForSeconds(waitSeconds);
         action(t);
@@ -66,7 +66,7 @@ public static class MonoBehaviourExtentsion
     /// <param name="waitSeconds">メソッド実行を一時停止させる秒数。</param>
     /// <param name="action">実行するメソッド。</param>
     /// <returns>メソッド実行を一時停止させるコルーチン。</returns>
-    public static IEnumerable DelayAction(this MonoBehaviour mono, float waitSeconds, Action action)
+    public static IEnumerator DelayAction(this MonoBehaviour mono, float waitSeconds, Action action)
     {
         yield return new WaitForSeconds(waitSeconds);
         action();
